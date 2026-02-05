@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutomateLab - Enterprise Automation Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #fafafa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a0033 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #00d4ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #0f0f1e, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #00d4ff, #7c3aed);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.4);
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .feature {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #0f0f1e;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .business-model {
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a0033 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .business-model h2 {
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+
+        .model-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .model-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .model-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .model-card p {
+            opacity: 0.9;
+            font-size: 15px;
+        }
+
+        .use-cases {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .use-cases h2 {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #0f0f1e;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .use-case {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #7c3aed;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .use-case h4 {
+            color: #0f0f1e;
+            margin-bottom: 10px;
+        }
+
+        .use-case p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        footer {
+            background: #0f0f1e;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .features, .model-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 36px;
+            }
+            nav ul {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">AutomateLab</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#model">Business Model</a></li>
+                <li><a href="#use-cases">Use Cases</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Enterprise Automation at Scale</h1>
+        <p class="subtitle">Powered by OpenClaw. Automate workflows, reduce costs, and scale operations with AI-driven intelligent automation.</p>
+        <a href="#" class="cta-button">Start Your Free Trial</a>
+    </section>
+
+    <section id="features" class="features">
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Integration</h3>
+            <p>Connect to 500+ business tools and APIs. No coding required. Deploy automations in minutes.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🤖</div>
+            <h3>AI-Powered Logic</h3>
+            <p>Natural language automation. Tell AutomateLab what to do, and it handles the complexity.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📊</div>
+            <h3>Real-time Analytics</h3>
+            <p>Monitor automation performance, identify bottlenecks, optimize for maximum efficiency.</p>
+        </div>
+    </section>
+
+    <section id="model" class="business-model">
+        <h2>How It Works</h2>
+        <div class="model-grid">
+            <div class="model-card">
+                <h3>Enterprise SaaS</h3>
+                <p>White-label automation platform for enterprises. Subscriptions: $999/month (Starter) → $9,999/month (Enterprise) with unlimited automations, priority support, and custom integrations.</p>
+            </div>
+            <div class="model-card">
+                <h3>Implementation Services</h3>
+                <p>Professional services to design, build, and optimize automation workflows for complex operations. Revenue: $150-300/hour billed projects.</p>
+            </div>
+            <div class="model-card">
+                <h3>API & Custom Automation</h3>
+                <p>Deploy custom automation agents for specific business processes. Usage-based pricing: $0.10 per 1000 API calls + $50/agent/month.</p>
+            </div>
+            <div class="model-card">
+                <h3>Training & Certification</h3>
+                <p>Certified AutomateLab specialists. Training programs: $2,000/person (5-day certification). Certify your internal team.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="use-cases" class="use-cases">
+        <h2>Enterprise Use Cases</h2>
+        <div class="use-case-grid">
+            <div class="use-case">
+                <h4>📧 Email & CRM Automation</h4>
+                <p>Auto-respond to customer inquiries, route to departments, update CRM records, and track metrics—all seamlessly integrated.</p>
+            </div>
+            <div class="use-case">
+                <h4>📦 Supply Chain & Inventory</h4>
+                <p>Monitor stock levels, auto-trigger reorders, sync across warehouses, and generate reports in real-time.</p>
+            </div>
+            <div class="use-case">
+                <h4>💰 Finance & Accounting</h4>
+                <p>Invoice generation, expense categorization, report automation, and compliance checks on autopilot.</p>
+            </div>
+            <div class="use-case">
+                <h4>👥 HR & Onboarding</h4>
+                <p>Automated employee onboarding, document management, payroll processing, and compliance verification.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AutomateLab. Built with OpenClaw. Automation for the modern enterprise.</p>
+    </footer>
+</body>
+</html>
